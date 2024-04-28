@@ -13,7 +13,7 @@ jobs:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: ${{matrix.python-version}}
         architecture: x64
@@ -26,10 +26,10 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-13]
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: ${{matrix.python-version}}
         architecture: x64
@@ -58,7 +58,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         architecture: x64
@@ -73,7 +73,7 @@ jobs:
         TOP: ${{github.workspace}}
       run: |
         rm .coverage.*.windows-latest
-        rm .coverage.*.macos-latest
+        rm .coverage.*.macos-13
         pip install coverage
         coverage combine
         coverage
